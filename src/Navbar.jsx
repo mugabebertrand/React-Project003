@@ -22,9 +22,7 @@ function Navbar() {
         <div className="collapse navbar-collapse" id="navbarNav">
           <ul className="navbar-nav">
             <li className="nav-item"><Link className="nav-link" to="/">Home</Link></li>
-            <li className="nav-item"><Link className="nav-link" to="/new-task">New Task</Link></li>
-            <li className="nav-item"><Link className="nav-link" to="/deleted-task">Deleted Task</Link></li>
-            <li className="nav-item"><Link className="nav-link" to="/pending-task">Pending Task</Link></li>
+            <li className="nav-item"><Link className="nav-link" to="/todos">Todos</Link></li>
             <li className="nav-item"><Link className="nav-link" to="/contact-us">Contact Us</Link></li>
           </ul>
         </div>

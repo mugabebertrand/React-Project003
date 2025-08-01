@@ -5,9 +5,7 @@ import './App.css'
 import { Route, Routes } from 'react-router-dom'
 import Navbar from './Navbar'
 import Home from './Home'
-import NewTask from './NewTask'
-import DeletedTask from './DeletedTask'
-import PendingTask from './PendingTask'
+import Todos from './Todos';
 import ContactUs from './ContactUs';
 
 function App() {
@@ -19,9 +17,7 @@ function App() {
       <div className="container mt-4">
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/new-task" element={<NewTask />} />
-          <Route path="/deleted-task" element={<DeletedTask />} />
-          <Route path="/pending-task" element={<PendingTask />} />
+          <Route path="/todos" element={<Todos />} />
           <Route path="/contact-us" element={<ContactUs />} />
         </Routes>
       </div>
