@@ -6,41 +6,37 @@ import { Route, Routes } from 'react-router-dom'
 import Navbar from './Navbar'
 import Home from './Home'
 import Todos from './Todos';
+import DeletedTask from './DeletedTask'
+import PendingTask from './PendingTask'
 import ContactUs from './ContactUs';
 
+const initialTodos = [
+  { id: 1, text: "Research stadium locations in USA, Canada, Mexico", status: "pending" },
+  { id: 2, text: "Create match schedule and fixtures", status: "completed" },
+  { id: 3, text: "Design ticket booking UI mockup", status: "pending" },
+  { id: 4, text: "Build country team profiles with flags and players", status: "pending" },
+  { id: 5, text: "Add group stage sorting functionality", status: "pending" },
+  { id: 6, text: "Implement live score update feature", status: "pending" },
+  { id: 7, text: "Create fan zone page with music and facts", status: "completed" },
+  { id: 8, text: "Plan launch promotion and social media strategy", status: "deleted" }
+];
+
 function App() {
-  const [count, setCount] = useState(0)
+  const [todos, setTodos] = useState(initialTodos)
 
   return (
     <>
       <Navbar />
       <div className="container mt-4">
         <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/todos" element={<Todos />} />
+       
+          <Route path="/" element={<Todos todos={todos} setTodos={setTodos} />} />
+          <Route path="/pending-task" element={<PendingTask todos={todos} setTodos={setTodos} />} />
+          <Route path="/deleted-task" element={<DeletedTask todos={todos} setTodos={setTodos} />} />
           <Route path="/contact-us" element={<ContactUs />} />
         </Routes>
       </div>
-      {/* <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        // Click on the Vite and React logos to learn more
-      </p> */}
+     
     </>
   );
 }

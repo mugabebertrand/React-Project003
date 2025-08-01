@@ -1,68 +1,88 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
+
 
 function Todos() {
-  const [tasks, setTasks] = useState([]);
-  const [newTask, setNewTask] = useState('');
+  const [todos, setTodos] = useState([
+    { id: 1, text: 'Build stadiums in host cities', completed: false },
+    { id: 2, text: 'Finalize team qualifications', completed: true },
+    { id: 3, text: 'Assign referees for each match', completed: false },
+    { id: 4, text: 'Prepare opening ceremony', completed: false },
+    { id: 5, text: 'Train volunteers and staff', completed: false },
+    { id: 6, text: 'Secure transportation plans', completed: true },
+    { id: 7, text: 'Launch ticket sales platform', completed: false },
+    { id: 8, text: 'Confirm team accommodations', completed: false },
+  ]);
+
+  const [newTodo, setNewTodo] = useState('');
   const [filter, setFilter] = useState('all');
 
-  const handleAddTask = () => {
-    if (!newTask.trim()) return;
-    setTasks([...tasks, { text: newTask.trim(), completed: false }]);
-    setNewTask('');
+  const handleAddTodo = (e) => {
+    e.preventDefault();
+    if (newTodo.trim() === '') return;
+    const newTask = {
+      id: Date.now(),
+      text: newTodo,
+      completed: false,
+    };
+    setTodos([...todos, newTask]);
+    setNewTodo('');
   };
 
-  const toggleTask = (index) => {
-    const updated = [...tasks];
-    updated[index].completed = !updated[index].completed;
-    setTasks(updated);
+  const toggleComplete = (id) => {
+    setTodos(
+      todos.map((todo) =>
+        todo.id === id ? { ...todo, completed: !todo.completed } : todo
+      )
+    );
   };
 
-  const deleteTask = (index) => {
-    const updated = tasks.filter((_, i) => i !== index);
-    setTasks(updated);
+  const deleteTodo = (id) => {
+    setTodos(todos.filter((todo) => todo.id !== id));
   };
 
-  const filteredTasks = tasks.filter(task => {
-    if (filter === 'completed') return task.completed;
-    if (filter === 'incomplete') return !task.completed;
+  const filteredTodos = todos.filter((todo) => {
+    if (filter === 'completed') return todo.completed;
+    if (filter === 'incomplete') return !todo.completed;
     return true;
   });
 
   return (
-    <div>
-      <h2>Todo List</h2>
-      <div className="d-flex mb-3">
+    <div className="todo-container">
+      <h2 className="text-center mb-4">World Cup 2026 To-Do List</h2>
+
+      <form onSubmit={handleAddTodo} className="mb-3 d-flex gap-2">
         <input
           type="text"
-          className="form-control me-2"
-          value={newTask}
-          onChange={(e) => setNewTask(e.target.value)}
-          placeholder="Add a new task"
+          value={newTodo}
+          onChange={(e) => setNewTodo(e.target.value)}
+          placeholder="Add new task..."
+          className="form-control"
         />
-        <button className="btn btn-primary" onClick={handleAddTask}>Add</button>
-      </div>
+        <button className="btn btn-success" type="submit">Add</button>
+      </form>
+
+      
       <div className="btn-group mb-3">
-        <button className="btn btn-outline-secondary" onClick={() => setFilter('all')}>All</button>
-        <button className="btn btn-outline-success" onClick={() => setFilter('completed')}>Completed</button>
-        <button className="btn btn-outline-warning" onClick={() => setFilter('incomplete')}>Incomplete</button>
+        <button className={`btn btn-outline-primary ${filter === 'all' ? 'active' : ''}`} onClick={() => setFilter('all')}>All</button>
+        <button className={`btn btn-outline-success ${filter === 'completed' ? 'active' : ''}`} onClick={() => setFilter('completed')}>Completed</button>
+        <button className={`btn btn-outline-warning ${filter === 'incomplete' ? 'active' : ''}`} onClick={() => setFilter('incomplete')}>Incomplete</button>
       </div>
+
       <ul className="list-group">
-        {filteredTasks.map((task, index) => (
+        {filteredTodos.map((todo) => (
           <li
-            key={index}
-            className="list-group-item d-flex justify-content-between align-items-center"
+            key={todo.id}
+            className={`list-group-item d-flex justify-content-between align-items-center ${
+              todo.completed ? 'completed-task' : ''
+            }`}
           >
-            <span style={{ textDecoration: task.completed ? 'line-through' : 'none' }}>
-              {task.text}
+            <span
+              style={{ textDecoration: todo.completed ? 'line-through' : 'none', cursor: 'pointer' }}
+              onClick={() => toggleComplete(todo.id)}
+            >
+              {todo.text}
             </span>
-            <div>
-              <button className="btn btn-sm btn-success me-2" onClick={() => toggleTask(index)}>
-                {task.completed ? 'Undo' : 'Complete'}
-              </button>
-              <button className="btn btn-sm btn-danger" onClick={() => deleteTask(index)}>
-                Delete
-              </button>
-            </div>
+            <button className="btn btn-sm btn-danger" onClick={() => deleteTodo(todo.id)}>Delete</button>
           </li>
         ))}
       </ul>
