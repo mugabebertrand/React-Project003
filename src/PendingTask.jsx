@@ -1,7 +1,6 @@
 import React from 'react';
 
 function PendingTask({ todos, setTodos }) {
-  // Filter to only pending and not deleted
   const pendingTasks = todos.filter(t => t.status === 'pending');
 
   const toggleTaskStatus = (id) => {

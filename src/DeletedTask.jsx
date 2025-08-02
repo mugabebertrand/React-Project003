@@ -1,10 +1,8 @@
 import React from 'react';
 
 function DeletedTask({ todos, setTodos }) {
- 
   const deletedTasks = todos.filter(t => t.status === 'deleted');
 
- 
   const restoreTask = (id) => {
     setTodos(
       todos.map(task =>
@@ -33,4 +31,3 @@ function DeletedTask({ todos, setTodos }) {
 }
 
 export default DeletedTask;
-
