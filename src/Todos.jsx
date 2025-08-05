@@ -5,7 +5,7 @@ function Todos({ todos, setTodos }) {
   const [newTodo, setNewTodo] = useState('');
   const [filter, setFilter] = useState('all');
 
-  // Filter tasks based on status and filter selected
+  
   const filteredTodos = todos.filter(todo => {
     if (filter === 'all') return todo.status !== 'deleted';
     if (filter === 'pending') return todo.status === 'pending';
@@ -13,7 +13,6 @@ function Todos({ todos, setTodos }) {
     return true;
   });
 
-  // Add new task
   const handleAddTodo = (e) => {
     e.preventDefault();
     if (newTodo.trim() === '') return;
@@ -28,7 +27,6 @@ function Todos({ todos, setTodos }) {
     setNewTodo('');
   };
 
-  // Toggle between completed and pending
   const toggleCompletion = (id) => {
     setTodos(prev =>
       prev.map(todo =>
@@ -42,7 +40,7 @@ function Todos({ todos, setTodos }) {
     );
   };
 
-  // Mark task as deleted
+ 
   const deleteTodo = (id) => {
     setTodos(prev =>
       prev.map(todo =>
@@ -55,7 +53,7 @@ function Todos({ todos, setTodos }) {
     <div className="container mt-4 todo-container">
       <h2 className="text-center mb-4">Task Manager</h2>
 
-      {/* Filter Buttons */}
+      
       <div
         className="btn-group d-flex justify-content-center mb-3"
         role="group"
@@ -84,7 +82,7 @@ function Todos({ todos, setTodos }) {
         </button>
       </div>
 
-      {/* Add New Task Form */}
+      
       <form onSubmit={handleAddTodo} className="d-flex mb-4 justify-content-center">
         <input
           type="text"
@@ -98,7 +96,7 @@ function Todos({ todos, setTodos }) {
         </button>
       </form>
 
-      {/* Task List */}
+      
       {filteredTodos.length === 0 ? (
         <p className="text-center">No tasks to show</p>
       ) : (
