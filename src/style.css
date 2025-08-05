@@ -1,0 +1,56 @@
+/* Container styling */
+.todo-container {
+  max-width: 700px;
+  margin: auto;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Input styling */
+.todo-input {
+  font-size: 1.1rem;
+  padding: 10px;
+  max-width: 400px;
+}
+
+/* Task box wrapper */
+.todo-box {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: double 3px #007bff; /* double border */
+  border-radius: 8px;
+  padding: 12px 20px;
+  margin-bottom: 12px;
+  background-color: #ffffff;
+  box-shadow: 2px 2px 8px rgba(0, 123, 255, 0.2);
+  transition: background-color 0.3s ease;
+}
+
+.todo-box:hover {
+  background-color: #e6f0ff;
+  cursor: pointer;
+}
+
+/* Task text */
+.todo-item {
+  flex-grow: 1;
+  font-size: 1.15rem;
+  user-select: none;
+}
+
+/* Delete button */
+.delete-btn {
+  margin-left: 15px;
+}
+
+/* Completed task style */
+.todo-item[style*="line-through"] {
+  color: gray;
+}
+
+/* Filter buttons nowrap */
+.btn-group .btn {
+  white-space: nowrap;
+  font-weight: 600;
+  font-size: 1rem;
+}

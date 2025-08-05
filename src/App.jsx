@@ -7,6 +7,7 @@ import Todos from './Todos';
 import DeletedTask from './DeletedTask';
 import PendingTask from './PendingTask';
 import ContactUs from './ContactUs';
+import './style.css';
 
 const initialTodos = [
   { id: 1, text: 'Build stadiums in host cities', status: 'pending' },
