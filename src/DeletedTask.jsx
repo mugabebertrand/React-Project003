@@ -12,7 +12,7 @@ function DeletedTask({ todos, setTodos }) {
   };
 
   return (
-    <div>
+    <div className='container-fluid full-width-container'>
       <h2>Deleted Tasks</h2>
       {deletedTasks.length === 0 ? (
         <p>No deleted tasks</p>

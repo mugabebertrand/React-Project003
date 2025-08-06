@@ -14,7 +14,7 @@ function PendingTask({ todos, setTodos }) {
   };
 
   return (
-    <div>
+    <div className='container-fluid full-width-container'>
       <h2>Pending Tasks</h2>
       {pendingTasks.length === 0 ? (
         <p>No pending tasks</p>
