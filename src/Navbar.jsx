@@ -3,33 +3,23 @@ import { Link } from 'react-router-dom';
 
 function Navbar() {
   return (
-    
-     <nav className="navbar navbar-expand-lg navbar-dark bg-primary px-3">
-      
-        <Link className="navbar-brand" to="/">Task Manager</Link>
-
-        <button
-          className="navbar-toggler"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#navbarNav"
-          aria-controls="navbarNav"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
-          <span className="navbar-toggler-icon"></span>
-        </button>
-
-        <div className="collapse navbar-collapse" id="navbarNav">
-          <ul className="navbar-nav">
-            <li className="nav-item"><Link className="nav-link" to="/">Todos</Link></li>
-            <li className="nav-item"><Link className="nav-link" to="/pending-task">Pending Tasks</Link></li>
-            <li className="nav-item"><Link className="nav-link" to="/deleted-task">Deleted Tasks</Link></li>
-            <li className="nav-item"><Link className="nav-link" to="/contact-us">Contact Us</Link></li>
-       
-          </ul>
+    <nav className="navbar navbar-dark bg-primary">
+      <div className="container-fluid px-0">
+        <div className="d-flex w-100">
+          <Link className="nav-link text-center flex-fill text-white fw-bold" to="/">
+            Todos
+          </Link>
+          <Link className="nav-link text-center flex-fill text-white fw-bold" to="/pending-task">
+            Pending Tasks
+          </Link>
+          <Link className="nav-link text-center flex-fill text-white fw-bold" to="/deleted-task">
+            Deleted Tasks
+          </Link>
+          <Link className="nav-link text-center flex-fill text-white fw-bold" to="/contact-us">
+            Contact Us
+          </Link>
         </div>
-    
+      </div>
     </nav>
   );
 }
