@@ -1,61 +1,201 @@
 
+
+:root {
+  --respage-primary-theme-color: #190e43;
+}
+
+body {
+  background-color: #FFFFFF; 
+  color: #333333; 
+  font-family: 'Open Sans', sans-serif; 
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: #212121; 
+}
+
 .todo-container {
   max-width: 1100px;
   margin: auto;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: 'Open Sans', sans-serif; 
 }
 
 .todo-input {
-  font-size: 1.1rem;
-  padding: 10px;
-  max-width: 400px;
+  font-size: 1.15rem;
+  padding: 12px;
+  max-width: 450px;
+  background-color: #FFFFFF;
+  color: #333333;
+  border-color: #E0E0E0; 
+  border-radius: 5px;
 }
 
+.todo-input::placeholder {
+  color: #9e9e9e;
+}
 
 .todo-box {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border: double 3px #007bff; 
-  border-radius: 8px;
-  padding: 12px 20px;
-  margin-bottom: 12px;
-  background-color: #ffffff;
-  box-shadow: 2px 2px 8px rgba(0, 123, 255, 0.2);
-  transition: background-color 0.3s ease;
+  background-color: #FFFFFF; 
+  border: double 4px #000000; 
+  border-radius: 10px;
+  padding: 15px 25px;
+  margin-bottom: 15px;
+  box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.18); 
+  transition: all 0.3s ease-in-out;
 }
 
 .todo-box:hover {
-  background-color: #e6f0ff;
+  background-color: #F5F5F5; 
+  transform: translateY(-2px);
   cursor: pointer;
 }
 
-
 .todo-item {
   flex-grow: 1;
-  font-size: 1.15rem;
+  font-size: 1.2rem;
   user-select: none;
   text-align: left;
+  color: #000000; 
+  text-shadow: none; 
 }
 
+.todo-item.completed {
+  color: #90A4AE; 
+  text-decoration: line-through;
+  opacity: 0.7;
+}
 
 .delete-btn {
-  margin-left: 15px;
+  margin-left: 20px;
 }
-
-
-.todo-item[style*="line-through"] {
-  color: gray;
-}
-
 
 .btn-group .btn {
   white-space: nowrap;
-  font-weight: 600;
-  font-size: 1rem;
+  font-weight: 700;
+  font-size: 1.05rem;
+  color: #4DD0E1; 
+  border-color: #4DD0E1;
+  border-radius: 5px;
+  transition: all 0.2s ease-in-out;
 }
+
+.btn-outline-primary {
+  background-color: transparent;
+  border-color: #4DD0E1;
+  color: #4DD0E1;
+}
+
+.btn-outline-primary:hover,
+.btn-outline-primary.active {
+  background-color: #4DD0E1;
+  color: #FFFFFF;
+  border-color: #4DD0E1;
+  box-shadow: 0 0 0 0.25rem rgba(77, 208, 225, 0.25);
+}
+
+.btn-outline-success {
+  background-color: transparent;
+  border-color: #81C784; 
+  color: #81C784;
+}
+
+.btn-outline-success.active {
+  background-color: #81C784;
+  color: #FFFFFF;
+  border-color: #81C784;
+}
+
+.btn-outline-warning {
+  background-color: transparent;
+  border-color: #FFD54F;
+  color: #FFD54F;
+}
+
+.btn-outline-warning.active {
+  background-color: #FFD54F;
+  color: #FFFFFF;
+  border-color: #FFD54F;
+}
+
+.btn-success {
+  background-color: var(--respage-primary-theme-color); 
+  border-color: var(--respage-primary-theme-color);
+  color: #FFFFFF;
+}
+.btn-success:hover {
+  background-color: #0d0628; 
+  border-color: #0d0628;
+}
+
+.btn-danger {
+  background-color: #D32F2F;
+  border-color: #D32F2F;
+  color: #FFFFFF;
+}
+.btn-danger:hover {
+  background-color: #C62828;
+  border-color: #C62828;
+}
+
 .full-width-container {
   max-width: 1400px;
   margin: auto;
-  padding: 20px;
+  padding: 25px;
+}
+
+.custom-navbar-bg {
+  background-color: var(--respage-primary-theme-color) !important; 
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25); 
+}
+
+.navbar-text, .navbar-brand, .nav-link {
+  color: #FFFFFF !important; 
+  font-weight: 600; 
+}
+
+.form-control {
+  background-color: #FFFFFF;
+  color: #333333;
+  border-color: #E0E0E0;
+}
+
+.form-control::placeholder {
+  color: #9e9e9e;
+}
+
+.form-control:focus {
+  background-color: #FFFFFF;
+  color: #333333;
+  border-color: #4DD0E1;
+  box-shadow: 0 0 0 0.25rem rgba(77, 208, 225, 0.25);
+}
+
+.btn-primary {
+  background-color: #00BCD4; 
+  border-color: #00BCD4;
+  color: #FFFFFF;
+}
+
+.btn-primary:hover {
+  background-color: #00ACC1;
+  border-color: #00ACC1;
+}
+
+
+.content-box {
+  background-color: #FFFFFF;
+  border: double 4px #000000; 
+  border-radius: 10px;
+  padding: 25px;
+  margin-bottom: 20px;
+  box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.18);
+  color: #000000; 
+}
+
+.pending-list-item,
+.deleted-list-item {
+  color: #000000; 
 }
